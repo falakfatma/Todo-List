@@ -3,7 +3,7 @@ let btn = document.querySelector(".btn");
 let heading = document.getElementById("taskName");
 let taskListId = document.getElementById("taskListId");
   // console.log(heading)
-  // alert(heading)
+  alert(heading.name)
   // for(let x of heading.value){
   //   console.log(heading[x])
   // }
@@ -12,7 +12,9 @@ function myfunc(event) {
   event.preventDefault()
 
   localStorage.setItem("Note : ", heading.value)
-  taskListId.innerHTML +=  `<li class="liClassList" style="list-style: none;padding: 17px;">${heading.value}</li> `
+  taskListId.innerHTML +=  `<li class="liClassList" id="${heading.value}" style="list-style: none;padding: 17px;">
+  ${heading.value}
+  </li> `
   heading.value = '';
 }
 
