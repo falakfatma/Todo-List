@@ -1,31 +1,42 @@
-
 let btn = document.querySelector(".btn");
-let heading = document.getElementById("taskName");
+let todosHeading = document.getElementById("taskName")
 let taskListId = document.getElementById("taskListId");
-  // console.log(heading)
-  alert(heading.name)
-  // for(let x of heading.value){
-  //   console.log(heading[x])
-  // }
-btn.addEventListener("click", myfunc)
-function myfunc(event) {
+let todosText = document.getElementById("textarea");
+let div = document.createElement("li");
+div.style.listStyle = 'none'
+//on create 
+btn.addEventListener("click", (event) => {
   event.preventDefault()
-
-  localStorage.setItem("Note : ", heading.value)
-  taskListId.innerHTML +=  `<li class="liClassList" id="${heading.value}" style="list-style: none;padding: 17px;">
-  ${heading.value}
-  </li> `
-  heading.value = '';
-}
-
-// let notes = prompt(`Write your Note`)
-// // if(heading){
-// confirm(` Its Heading is ${heading}`)
+  localStorage.setItem(todosHeading.value, todosText.value)
+ div.innerHTML += 
+   `
+   <h1>${todosHeading.value}</h1>
+   <p> ${todosText.value}</p>
+   `
+  console.log(div)
+  taskListId.append(div)
+  todosHeading.value = '';
+  todosText.value = '';
+})
+//
+// // on delete
+deleteBtn.addEventListener("click", (event) => {
+  event.preventDefault()
+  localStorage.removeItem(todosHeading.value, todosText.value)
+ div.innerHTML = ""
+  // console.log(div)
+  taskListId.append(div)
+  todosHeading.value = '';
+  todosText.value = '';
+})
+// // let notes = prompt(`Write your Note`)
+// // // if(todosHeading){
+// confirm(` Its Heading is ${todosHeading}`)
 // // }
 // let clear = confirm(` want to delete your all notes`)
 // let clearone = confirm(` want to delete your note`)
 // if (clearone) {
-//   localStorage.removeItem(heading)
+//   localStorage.removeItem(todosHeading)
 
 // }
 // if (clear) {

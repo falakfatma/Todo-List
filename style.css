@@ -1,7 +1,53 @@
-html, body {
+/* html, body {
   height: 100%;
   width: 100%;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#taskName{
+  width: 16rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
+#submit{
+background: #d2fd91;
+}
+#deleteBtn{
+  background: f8f0d8;
+  
+}
+.todoList{
+      text-align: center;
+  background: aliceblue;
+}
+.input-group{
+  display: flex;
+    flex-direction: column;
+}
+#textarea{
+  
+  margin: 1rem;
+}
+.btn{
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 1rem;
+  background: #f8f0d8;
 }
 .liClassList{
   list-style: none;
 }
+.card{
+  background: #f9f0f0;
+    /* justify-content: center; */
+/*     border: solid,double; */
+    border: double;
+    /* flex-wrap: nowrap; */
+    /* flex-direction: row; */
+    width: 34rem;
+  margin:2px;
+} */
