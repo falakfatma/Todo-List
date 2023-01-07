@@ -10,11 +10,10 @@ taskListId.style.listStyle = 'none'
 
 // on delete a item 
 function myFunction(e) {
-  let objectKey = localStorage.key(e)
-  localStorage.removeItem(objectKey)
-  setTimeout(() => {
-    location.reload()
-  }, 1000)
+  let objectKey = localStorage.key(e);
+  let deletedListItem = document.getElementById(objectKey);
+  deletedListItem.remove();
+  localStorage.removeItem(objectKey);
 }
 
 // on get
@@ -22,7 +21,7 @@ const getTasks = () => {
   const tasks = localStorage;
   for (const [key, value] of Object.entries(tasks)) {
     taskListId.innerHTML += `
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class="list-group-item d-flex justify-content-between align-items-start" id="${key}">
       <div class="fw-bold">${key}</div>
       ${value}
       <button class="btn btn-danger" onClick=myFunction(todosHeading)>Delete</button>
@@ -32,16 +31,14 @@ const getTasks = () => {
 }
 window.onload = getTasks()
 
-
-
 const createTask = (e) => {
   e.preventDefault()
   taskListId.innerHTML +=
     `
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class="list-group-item d-flex justify-content-between align-items-start" id="${todosHeading.value}">
          <div class="fw-bold" >${todosHeading.value}</div>
          ${todosText.value}
-          <button class="btn btn-danger" onclick="myFunction(todosHeading)">Delete</button>
+          <button class="btn btn-danger" onClick=myFunction(todosHeading)>Delete</button>
     </li>
    `
   localStorage.setItem(todosHeading.value, todosText.value)
